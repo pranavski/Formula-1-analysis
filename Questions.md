@@ -1,4 +1,4 @@
-# F1 Data Analysis
+# Analysis Questions
 
 This document outlines the variables and questions related to Formula 1 (F1) data analysis. It serves as a guide for understanding the key metrics and inquiries that can be explored within the dataset.
 

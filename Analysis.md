@@ -1,4 +1,4 @@
-# F1 Data Analysis
+## Analysis steps and methods
 
 ## Variables for F1 Data
 
