@@ -18,7 +18,7 @@
 # Questions to be answered
 
 ### **Question 1: Weather Conditions and Performance:**
-- What is the relationship between different weather conditions (e.g., sunny, rainy) and the average race times across various circuits? Do certain drivers perform better under specific weather conditions?
+What is the relationship between different weather conditions (e.g., sunny, rainy) and the average race times across various circuits? Do certain drivers perform better under specific weather conditions?
 ### **Variables used:**
 - **race_time**: Dependent variable representing overall performance.
 - **weather_conditions**: Key independent variable to analyze the impact of weather on performance.
