@@ -1,6 +1,6 @@
-## Analysis steps and methods
+# Analysis steps and methods
 
-## Variables for F1 Data
+# Variables for F1 Data
 
 - **race_time** (in seconds): Total time taken to complete the race.
 - **driver**: Name of the driver.
@@ -15,7 +15,8 @@
 - **track_type**: Type of track (categorical: street, road, oval).
 - **distance_traveled** (in kilometers): Total distance of the race.
 
-## Questions to be answered
+# Questions to be answered
 
-1. **Weather Conditions and Performance:**
+## **Question 1: Weather Conditions and Performance:**
    - What is the relationship between different weather conditions (e.g., sunny, rainy) and the average race times across various circuits? Do certain drivers perform better under specific weather conditions?
+   
