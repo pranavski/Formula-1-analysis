@@ -17,7 +17,7 @@
 
 # Questions to be answered
 
-## **Question 1: Weather Conditions and Performance:**
+## **Question 1: Weather Conditions and Performance (This is a supervised Learning Model)**
 What is the relationship between different weather conditions (e.g., sunny, rainy) and the average race times across various circuits? Do certain drivers perform better under specific weather conditions?
 ### **Variables used:**
 - **race_time**: Dependent variable representing overall performance.
@@ -45,7 +45,7 @@ What is the relationship between different weather conditions (e.g., sunny, rain
 ### **Brief discussion of why analysis is effective at answering question:**
 This analysis is effective because it compares a full model (including all predictors) with models that exclude one predictor at a time. This approach allows us to observe the changes in R-squared values when specific predictors, such as weather_conditions or driver_experience, are removed. The visualizations will aid in illustrating these numeric results and highlight the relationships between the most influential predictors and the outcome (race_time).
 
-## **Question 2: Dimensionality Reduction Impact:**
+## **Question 2: Dimensionality Reduction Impact (This is a dimensionality reduction model)**
 How does applying PCA to continuous performance variables (like lap times and pitstop durations) affect the predictive accuracy of models? What insights can be gained from the mean absolute error differences between models using PCA and those using all original variables?
 
 ### **Variables used:**
@@ -73,7 +73,7 @@ How does applying PCA to continuous performance variables (like lap times and pi
 ### **Brief discussion of why analysis is effective at answering question:**
 PCA simplifies high-dimensional data while retaining most of the variability, which can reduce overfitting and computational complexity. Comparing MAE helps quantify the trade-off between dimensionality reduction and predictive accuracy. Visualizations, such as explained variance and heatmaps, make it clear how PCA transforms the dataset and highlights its impact on redundancy and model performance.
 
-## **Question 3:**
+## **Question 3: **
 ### **Variables used:**
 - 
 
