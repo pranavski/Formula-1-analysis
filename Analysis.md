@@ -39,7 +39,68 @@ What is the relationship between different weather conditions (e.g., sunny, rain
 - Evaluated the model using Mean Absolute Error (MAE) and R-squared to ensure good performance and interpretability.
 
 ### **Graphs/Visualizations:**
-- Aggregated Heatmap: For large datasets, a heatmap summarizing the average race times across weather conditions and circuits, aggregated over all drivers. Due to the large number of circuits and drivers with their fastest laps, an aggregated heatmap makes the most sense to use
+- **Aggregated Heatmap**: For large datasets, a heatmap summarizing the average race times across weather conditions and circuits, aggregated over all drivers. Due to the large number of circuits and drivers with their fastest laps, an aggregated heatmap makes the most sense to use.
+- **Boxplot**: A boxplot to visualize the distribution of race times across different weather conditions, highlighting median times and variability.
 
 ### **Brief discussion of why analysis is effective at answering question:**
 This analysis is effective because it compares a full model (including all predictors) with models that exclude one predictor at a time. This approach allows us to observe the changes in R-squared values when specific predictors, such as weather_conditions or driver_experience, are removed. The visualizations will aid in illustrating these numeric results and highlight the relationships between the most influential predictors and the outcome (race_time).
+
+## **Question 2: Dimensionality Reduction Impact:**
+How does applying PCA to continuous performance variables (like lap times and pitstop durations) affect the predictive accuracy of models? What insights can be gained from the mean absolute error differences between models using PCA and those using all original variables?
+
+### **Variables used:**
+- **lap_times**: Continuous performance variable to be transformed by PCA.
+- **pitstop_duration**: Another continuous variable considered for dimensionality reduction.
+- **race_time**: Target variable to evaluate predictive accuracy.
+
+### **Cleaning:**
+- Removed rows with missing or inconsistent values for continuous performance variables.
+- Scaled continuous variables to ensure PCA components are not biased by differing units.
+- Verified data integrity by confirming consistent alignment between variables (e.g., all laps and pitstop data matching race times).
+
+### **Modeling/Computation:**
+- Applied PCA to reduce dimensions of continuous variables (lap_times, pitstop_duration) and extracted principal components.
+- Built two predictive models:
+  - Using all original variables (no PCA).
+  - Using principal components (PCA-applied variables).
+- Compared the predictive accuracy (e.g., Mean Absolute Error) of both models to assess the impact of PCA.
+- Evaluated variance explained by the principal components to determine how much information was retained.
+
+### **Graphs/Visualizations:**
+- **Scree Plot**: A plot showing the eigenvalues associated with each principal component to determine the number of components to retain.
+- **PCA Projection Scatter Plot**: A scatter plot of the first two principal components to visualize the distribution of data points in the reduced dimensional space.
+
+### **Brief discussion of why analysis is effective at answering question:**
+PCA simplifies high-dimensional data while retaining most of the variability, which can reduce overfitting and computational complexity. Comparing MAE helps quantify the trade-off between dimensionality reduction and predictive accuracy. Visualizations, such as explained variance and heatmaps, make it clear how PCA transforms the dataset and highlights its impact on redundancy and model performance.
+
+## **Question 3:**
+### **Variables used:**
+- 
+
+### **Cleaning:**
+- 
+
+### **Modeling/Computation:**
+- 
+
+### **Graphs/Visualizations:**
+- 
+
+### **Brief discussion of why analysis is effective at answering question:**
+- 
+
+## **Question 4:**
+### **Variables used:**
+- 
+
+### **Cleaning:**
+- 
+
+### **Modeling/Computation:**
+- 
+
+### **Graphs/Visualizations:**
+- 
+
+### **Brief discussion of why analysis is effective at answering question:**
+- 
