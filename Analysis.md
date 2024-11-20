@@ -19,6 +19,7 @@
 
 ## **Question 1: Weather Conditions and Performance (This is a supervised Learning Model)**
 What is the relationship between different weather conditions (e.g., sunny, rainy) and the average race times across various circuits? Do certain drivers perform better under specific weather conditions?
+
 ### **Variables used:**
 - **race_time**: Dependent variable representing overall performance.
 - **weather_conditions**: Key independent variable to analyze the impact of weather on performance.
@@ -73,21 +74,37 @@ How does applying PCA to continuous performance variables (like lap times and pi
 ### **Brief discussion of why analysis is effective at answering question:**
 PCA simplifies high-dimensional data while retaining most of the variability, which can reduce overfitting and computational complexity. Comparing MAE helps quantify the trade-off between dimensionality reduction and predictive accuracy. Visualizations, such as explained variance and heatmaps, make it clear how PCA transforms the dataset and highlights its impact on redundancy and model performance.
 
-## **Question 3: **
+## **Question 3: Variance in Lap Times by Circuit Type**
+Which types of circuits (e.g., street, road, oval) exhibit the smallest variance in lap times? What characteristics of these circuits contribute to this consistency in performance? (This is a clustering model)
+
 ### **Variables used:**
-- 
+- **lap_times**: Continuous variable representing the time taken for each lap, which is the primary measure of performance.
+- **circuit_type**: Categorical variable indicating the type of circuit (e.g., street, road, oval) to analyze how different types of circuits affect lap time variance.
+- **circuit**: To identify specific circuits and their characteristics, which may contribute to performance consistency.
+- **driver**: To assess if certain drivers consistently perform better or worse on specific circuit types, potentially affecting variance.
+- **weather_conditions**: To account for how different weather conditions might influence lap times on various circuit types.
 
 ### **Cleaning:**
-- 
+- **lap_times**:Checked for missing values and outliers (e.g., unusually fast or slow laps) and aggregated lap times by circuit type to compute variance for each type.
+- **circuit_type**: Standardized circuit types to ensure consistency in labeling (e.g., "street" vs. "urban").
+- **weather_conditions**: Filtered laps with extreme weather (e.g., storms) to focus on typical race conditions and dropped laps with incomplete data (e.g., missing lap times or circuit type).
 
 ### **Modeling/Computation:**
-- 
+- **Clustering**: 
+    - Used K-Means clustering to group circuits based on the variance in lap times and other circuit characteristics (e.g., length, number of turns).
+- **Variance Analysis**: 
+    - Calculated the variance of lap times for each circuit type and compared it across categories (e.g., street vs. oval).
+- **Driver Consistency**: 
+    - Analyzed lap time consistency for individual drivers on each circuit type to identify drivers who influence variance the most.
 
 ### **Graphs/Visualizations:**
-- 
+- **Clustering Results Visualization**:
+  - A scatter plot of circuits in the reduced feature space (e.g., PCA components) with clusters identified by color to show grouping based on variance and characteristics.
+- **Bar Chart**:
+  - A bar chart showing the average variance in lap times for each circuit type to quickly identify the most and least consistent types.
 
 ### **Brief discussion of why analysis is effective at answering question:**
-- 
+This analysis effectively uses clustering to group circuits based on lap time variance and other characteristics, providing insights into patterns of consistency. Visualizations like box plots and scatter plots make it easy to identify circuit types with the smallest variance and explore the underlying factors contributing to this consistency. Clustering also helps in uncovering hidden relationships between circuits and variance metrics, offering actionable insights for performance optimization.
 
 ## **Question 4:**
 ### **Variables used:**

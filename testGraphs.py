@@ -134,9 +134,62 @@ pca_scatter_plot = (
 pca_scatter_plot
 
 # Question 3:
-# Graph 1:
+# Graph 1/Graph 2:
+# Re-import necessary libraries after reset
+from plotnine import ggplot, aes, geom_point, geom_bar, labs, theme_minimal
+import pandas as pd
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
 
-# Graph 2:
+# Sample dataset
+data = pd.DataFrame({
+    'Circuit': ['Circuit A', 'Circuit B', 'Circuit C', 'Circuit D', 'Circuit E'],
+    'Circuit_Type': ['Street', 'Oval', 'Road', 'Street', 'Road'],
+    'Feature1': [0.8, 1.2, 0.5, 0.7, 0.9],
+    'Feature2': [0.6, 1.5, 0.4, 0.6, 1.0],
+    'Variance_Lap_Times': [1.2, 1.5, 0.9, 1.1, 0.8]
+})
+
+# Perform PCA for dimensionality reduction
+pca = PCA(n_components=2)
+pca_data = pca.fit_transform(data[['Feature1', 'Feature2']])
+data['PC1'] = pca_data[:, 0]
+data['PC2'] = pca_data[:, 1]
+
+# Apply K-Means clustering
+kmeans = KMeans(n_clusters=3, random_state=42)
+data['Cluster'] = kmeans.fit_predict(data[['PC1', 'PC2']])
+
+# Clustering Results Visualization
+clustering_plot = (
+    ggplot(data, aes(x='PC1', y='PC2', color='factor(Cluster)', label='Circuit')) +
+    geom_point(size=3) +
+    labs(
+        title="Clustering Results Visualization",
+        x="Principal Component 1",
+        y="Principal Component 2",
+        color="Cluster"
+    ) +
+    theme_minimal()
+)
+
+# Bar Chart of Variance in Lap Times by Circuit Type
+variance_plot = (
+    ggplot(data, aes(x='Circuit_Type', y='Variance_Lap_Times', fill='Circuit_Type')) +
+    geom_bar(stat='identity') +
+    labs(
+        title="Average Variance in Lap Times by Circuit Type",
+        x="Circuit Type",
+        y="Variance in Lap Times",
+        fill="Circuit Type"
+    ) +
+    theme_minimal()
+)
+
+# Display the plots
+clustering_plot
+variance_plot
+
 
 # Question 4:
 # Graph 1:
