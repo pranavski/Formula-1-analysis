@@ -47,7 +47,5 @@ This document outlines the variables and questions related to Formula 1 (F1) dat
    - What specific characteristics of a circuit (e.g., length, number of turns, elevation changes) have the most significant impact on lap times? How do these factors vary across different types of circuits?
 
 ## 10. **Analysis of Pitstop Strategies:** 
-   -How do different pitstop strategies (e.g., number of stops, timing of stops) affect overall race time? Are there optimal strategies that lead to better performance based on race conditions or circuit types?
-
-## **More Questions to come as analysis progresses**
+   - How do different pitstop strategies (e.g., number of stops, timing of stops) affect overall race time? Are there optimal strategies that lead to better performance based on race conditions or circuit types?
 
