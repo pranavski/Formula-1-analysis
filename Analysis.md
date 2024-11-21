@@ -106,7 +106,7 @@ Which types of circuits (e.g., street, road, oval) exhibit the smallest variance
 ### **Brief discussion of why analysis is effective at answering question:**
 This analysis effectively uses clustering to group circuits based on lap time variance and other characteristics, providing insights into patterns of consistency. Visualizations like box plots and scatter plots make it easy to identify circuit types with the smallest variance and explore the underlying factors contributing to this consistency. Clustering also helps in uncovering hidden relationships between circuits and variance metrics, offering actionable insights for performance optimization.
 
-## **Question 4:**
+## **Question 4: Effect of Circuit Characteristics on Lap Times: What specific characteristics of a circuit (e.g., length, number of turns, elevation changes) have the most significant impact on lap times? How do these factors vary across different types of circuits?**
 ### **Variables used:**
 - 
 

@@ -133,7 +133,7 @@ pca_scatter_plot = (
 
 pca_scatter_plot
 
-# Question 3:
+# Question 3: Variance in Lap Times by Circuit Type
 # Graph 1/Graph 2:
 # Re-import necessary libraries after reset
 from plotnine import ggplot, aes, geom_point, geom_bar, labs, theme_minimal
@@ -191,7 +191,62 @@ clustering_plot
 variance_plot
 
 
-# Question 4:
-# Graph 1:
+# Question 4: Effect of Circuit Characteristics on Lap Times
+# Graph 1/Graph 2:
+# Import necessary libraries
+from plotnine import ggplot, aes, geom_point, geom_bar, labs, theme_minimal
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+import numpy as np
 
-# Graph 2:
+# Sample dataset
+data = pd.DataFrame({
+    'Circuit': ['Circuit A', 'Circuit B', 'Circuit C', 'Circuit D', 'Circuit E'],
+    'Circuit_Type': ['Street', 'Oval', 'Road', 'Street', 'Road'],
+    'Length_km': [5.5, 4.0, 6.2, 5.3, 5.8],
+    'Number_of_Turns': [15, 10, 12, 18, 13],
+    'Elevation_Change': [30, 10, 25, 35, 20],
+    'Average_Lap_Time': [95.2, 90.5, 96.7, 94.1, 95.9]
+})
+
+# Train a Random Forest Regressor to identify feature importance
+X = data[['Length_km', 'Number_of_Turns', 'Elevation_Change']]
+y = data['Average_Lap_Time']
+model = RandomForestRegressor(random_state=42)
+model.fit(X, y)
+
+# Extract feature importance
+feature_importance = pd.DataFrame({
+    'Feature': ['Length_km', 'Number_of_Turns', 'Elevation_Change'],
+    'Importance': model.feature_importances_
+}).sort_values(by='Importance', ascending=False)
+
+# Feature Importance Bar Chart
+importance_plot = (
+    ggplot(feature_importance, aes(x='Feature', y='Importance', fill='Feature')) +
+    geom_bar(stat='identity') +
+    labs(
+        title="Feature Importance: Circuit Characteristics Impact on Lap Times",
+        x="Circuit Characteristic",
+        y="Importance",
+        fill="Feature"
+    ) +
+    theme_minimal()
+)
+
+# Scatter Plot of Circuit Length vs. Lap Times (as an example of relationship exploration)
+scatter_plot = (
+    ggplot(data, aes(x='Length_km', y='Average_Lap_Time', color='Circuit_Type')) +
+    geom_point(size=3) +
+    labs(
+        title="Circuit Length vs. Average Lap Times",
+        x="Circuit Length (km)",
+        y="Average Lap Time (seconds)",
+        color="Circuit Type"
+    ) +
+    theme_minimal()
+)
+
+# Display the plots
+importance_plot
+scatter_plot
