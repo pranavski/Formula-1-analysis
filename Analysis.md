@@ -106,18 +106,46 @@ Which types of circuits (e.g., street, road, oval) exhibit the smallest variance
 ### **Brief discussion of why analysis is effective at answering question:**
 This analysis effectively uses clustering to group circuits based on lap time variance and other characteristics, providing insights into patterns of consistency. Visualizations like box plots and scatter plots make it easy to identify circuit types with the smallest variance and explore the underlying factors contributing to this consistency. Clustering also helps in uncovering hidden relationships between circuits and variance metrics, offering actionable insights for performance optimization.
 
-## **Question 4: Effect of Circuit Characteristics on Lap Times: What specific characteristics of a circuit (e.g., length, number of turns, elevation changes) have the most significant impact on lap times? How do these factors vary across different types of circuits?**
+## **Question 4: Effect of Circuit Characteristics on Lap Times**
+What specific characteristics of a circuit (e.g., length, number of turns, elevation changes) have the most significant impact on lap times? How do these factors vary across different types of circuits?
+
 ### **Variables used:**
-- 
+- **circuit_length**: Length of the circuit.
+- **number_of_turns**: Number of turns in the circuit.
+- **elevation_changes**: Elevation changes in the circuit.
+- **circuit_type**: Type of circuit (e.g., street, road, oval).
 
 ### **Cleaning:**
-- 
+- **Circuit Characteristics:**
+  - Verified all circuit characteristic values for accuracy (e.g., realistic lengths, turn counts).
+  - Standardized the units for elevation changes (e.g., all values in meters).
+- **Categorical Variable (circuit_type):**
+  - Ensured consistency in labels (e.g., "street" vs. "Street").
+  - Filtered out incomplete or unknown circuit types.
+- **Handling Missing Data:**
+  - Imputed missing values for numerical features (e.g., circuit_length) using median imputation.
+  - Dropped rows with critical missing data if imputation was not feasible.
 
 ### **Modeling/Computation:**
-- 
+- **Random Forest Regression:**
+  - Trained a Random Forest Regressor to predict lap times based on circuit characteristics (circuit_length, number_of_turns, elevation_changes).
+  - Extracted feature importance to identify which characteristics had the most significant impact.
+- **Variance Analysis:**
+  - Compared lap time variance across different circuit types (e.g., street vs. oval).
+- **Interactions:**
+  - Analyzed interaction effects between characteristics (e.g., how circuit length and elevation changes jointly impact lap times).
 
 ### **Graphs/Visualizations:**
-- 
+- **Feature Importance Bar Chart:**
+  - A bar chart displaying the relative importance of circuit characteristics in predicting lap times, based on the Random Forest model.
+  - Highlights which characteristics most significantly impact performance.
+  - Example Plot: Feature importance ranked as circuit_length > number_of_turns > elevation_changes.
+- **Scatter Plot:**
+  - A scatter plot showing the relationship between circuit_length and lap times, colored by circuit type.
+  - Explores trends, such as longer circuits generally leading to higher lap times.
+- **Variance Analysis Box Plot:**
+  - A box plot showing the variance in lap times for each circuit type.
+  - Highlights which circuit types (e.g., street, road, oval) are the most consistent in lap times.
 
 ### **Brief discussion of why analysis is effective at answering question:**
-- 
+Using Random Forest Regression provides a robust way to assess the impact of circuit characteristics on lap times while handling potential non-linear relationships and interactions between features. The feature importance analysis directly identifies the most influential circuit characteristics. The combination of scatter plots and variance analysis highlights specific trends and patterns, making it easier to communicate findings to stakeholders. Cleaning and preprocessing ensure high data quality, while visualizations effectively summarize and validate insights.
